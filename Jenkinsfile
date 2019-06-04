@@ -85,7 +85,7 @@ pipeline {
           script {
             def status = executeJMeter ( 
               scriptName: "jmeter/front-end_e2e_load.jmx",
-              resultsDir: "e2eCheck_${env.APP_NAME}_warmup",
+              resultsDir: "e2eCheck_${env.APP_NAME}_warmup_${BUILD_NUMBER}",
               serverUrl: "front-end.staging", 
               serverPort: 8080,
               checkPath: '/health',
@@ -116,7 +116,7 @@ pipeline {
             script {
               def status = executeJMeter ( 
                 scriptName: "jmeter/front-end_e2e_load.jmx",
-                resultsDir: "e2eCheck_${env.APP_NAME}",
+                resultsDir: "e2eCheck_${env.APP_NAME}_staging_${BUILD_NUMBER}",
                 serverUrl: "front-end.staging", 
                 serverPort: 8080,
                 checkPath: '/health',
